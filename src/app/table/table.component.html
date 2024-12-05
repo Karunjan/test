@@ -1,0 +1,24 @@
+<nz-table #basicTable [nzData]="listOfData">
+  <thead>
+    <tr>
+      <th>username</th>
+      <th>phoneNumber</th>
+      <th>gmail</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    @for (data of basicTable.data; track data) {
+      <tr>
+        <td>{{ data.name }}</td>
+        <td>{{ data.phoneNumber }}</td>
+        <td>{{ data.gmail }}</td>
+        <td>
+          <a>Action 一 {{ data.name }}</a>
+          <nz-divider nzType="vertical"></nz-divider>
+          <a>Delete</a>
+        </td>
+      </tr>
+    }
+  </tbody>
+</nz-table>

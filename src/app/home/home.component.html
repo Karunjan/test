@@ -1,0 +1,10 @@
+<section class="slider-container">
+  <!-- Image Slider -->
+  <nz-carousel autoplay [nzDotPosition]="dotPosition">
+    <div nz-carousel-content *ngFor="let images of images">
+      <img [src]="images" alt="Slider Image" class="slider-image" />
+    </div>
+  </nz-carousel>
+
+
+</section>
