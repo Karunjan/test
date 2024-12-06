@@ -1,27 +1,181 @@
 <nz-layout>
-  <!-- <nz-header>
+  <nz-header>
+    <div class="sam">
+      <div class="logo">
+        <i class="fa-solid fa-user"></i>
+      </div>
+      <div class="heading">Sample User Page</div>
+      <ul nz-menu nzTheme="dark" nzMode="horizontal">
+        <li nz-menu-item>Home</li>
+        <li nz-menu-item>About</li>
+        <li nz-menu-item>Contact</li>
+        <li nz-menu-item>Services</li>
+        <li nz-menu-item>Help</li>
+      </ul>
+      <div class="avatar" (click)="toggleForm()">
+        <nz-avatar
+          nzIcon="user"
+          nzSrc="./assets/images/avatar.jpeg"
+        ></nz-avatar>
 
-    <div class="logo" >
-      <i class="fa-solid fa-hospital"></i>
+        <div class="profile" *ngIf="showEditForm">
+          <div class="avt-pro">
+            <nz-avatar
+              nzIcon="user"
+              nzSrc="./assets/images/avatar.jpeg"
+            ></nz-avatar>
+          </div>
+          <form (ngSubmit)="handleSubmit()" class="small-form">
+            <div class="name">
+              <p>Name : Karunjan</p>
+              <p>Address : Jaffna</p>
+              <p>Work : Codelantic</p>
+            </div>
+            <div class="edit-btn">
+              <button type="submit" (click)="toggleForms()">
+                Edit Profile
+              </button>
+            </div>
+
+            <div class="logout-btn">
+              <button type="submit" (click)="toggleForm()">Log Out</button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
-    <div class="heading">Hospital</div>
-        <ul nz-menu nzTheme="dark" nzMode="horizontal">
-          <li nz-menu-item>Home</li>
-          <li nz-menu-item>About</li>
-          <li nz-menu-item>Contact</li>
-          <li nz-menu-item>Services</li>
-          <li nz-menu-item>Help</li>
-        </ul>
-        <i class="fa-solid fa-right-to-bracket"></i>
-  </nz-header> -->
-  <nz-content>
+  </nz-header>
 
+  <nz-content>
     <!-- <app-home></app-home>
 <app-about></app-about> -->
-<app-contact></app-contact>
-<!-- <app-service></app-service> -->
-
-
+    <app-contact></app-contact>
+    <app-service> </app-service>
   </nz-content>
+
+  <!--create profile details from avatar  -->
+
+  <!--Edit profile form   -->
+  <div class="edit-profile" *ngIf="showForms">
+    <form (ngSubmit)="handleSubmits()" class="small-form">
+      <div class="basic">
+        <!-- Close Button -->
+        <button type="button" class="close-btn" (click)="closeEditForm()">
+          X
+        </button>
+
+        <div class="avt-edit">
+          <nz-avatar
+            nzIcon="user"
+            nzSrc="./assets/images/avatar.jpeg"
+          ></nz-avatar>
+        </div>
+        <div class="hello">
+          Hello !
+          <i class="fa-solid fa-hands-clapping"></i>
+        </div>
+        <div class="info">
+          <div class="edit-name">Karunjan</div>
+          <div class="edit-work">Software Engineer - Codelantic</div>
+        </div>
+
+        <div class="info-container">
+          <div class="fl">
+            <div class="fl-contain">
+              <div nz-row>
+                <div class="llabel" nz-col nzSpan="12">
+                  <div class="label">
+                    <label>First Name: </label>
+                  </div>
+                  <div class="linput">
+                    <input type="text" placeholder="Your Name" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="fl2-contain">
+              <div nz-row>
+                <div class="llabel2" nz-col nzSpan="12">
+                  <div class="label2">
+                    <label>First Name: </label>
+                  </div>
+                  <div class="linput2">
+                    <input type="text" placeholder="Your Name" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Second -->
+          <div class="fl2">
+            <div class="first" nz-row>
+              <div nz-col nzSpan="6">
+                <div class="label3">
+                  <label>First Name: </label>
+                </div>
+                <div class="linput3">
+                  <input type="text" placeholder="Your Name" />
+                </div>
+              </div>
+              <div class="second" nz-col nzSpan="6">
+                <div class="label4">
+                  <label>First Name: </label>
+                </div>
+                <div class="linput4">
+                  <input type="text" placeholder="Your Name" />
+                </div>
+              </div>
+              <div class="third" nz-col nzSpan="6">
+                <div class="label5">
+                  <label>First Name: </label>
+                </div>
+                <div class="linput5">
+                  <input type="text" placeholder="Your Name" />
+                </div>
+              </div>
+              <div class="fouth" nz-col nzSpan="6">
+                <div class="label6">
+                  <label>First Name: </label>
+                </div>
+                <div class="linput6">
+                  <input type="text" placeholder="Your Name" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="conadd">
+        <!-- Start -->
+        <div nz-row>
+          <div class="contact" nz-col nzSpan="12">
+            <div class="c-heading">
+              <div class="h1c">Contact</div>
+            </div>
+            <div class="logos"></div>
+            <div class="detail">
+              <div class="dc">
+                <label>Phone</label>
+                <input type="number" placeholder="Enter your phone number" />
+              </div>
+            </div>
+          </div>
+
+          <div class="address" nz-col nzSpan="12">
+            <div class="a-heading">
+              <div class="h1a">Address</div>
+            </div>
+            <div class="logo2"></div>
+            <div class="detail2"></div>
+          </div>
+        </div>
+      </div>
+      <!-- End -->
+    </form>
+  </div>
+  <!--finish info container-->
   <!-- <nz-footer>Footer</nz-footer> -->
 </nz-layout>
