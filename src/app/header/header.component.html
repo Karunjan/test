@@ -1,5 +1,5 @@
 <nz-layout>
-  <nz-header>
+  <!-- <nz-header>
     <div class="sam">
       <div class="logo">
         <i class="fa-solid fa-user"></i>
@@ -44,12 +44,12 @@
         </div>
       </div>
     </div>
-  </nz-header>
+  </nz-header> -->
 
   <nz-content>
     <!-- <app-home></app-home>
 <app-about></app-about> -->
-    <app-contact></app-contact>
+    <!-- <app-contact></app-contact> -->
     <app-service> </app-service>
   </nz-content>
 
@@ -59,10 +59,18 @@
   <div class="edit-profile" *ngIf="showForms">
     <form (ngSubmit)="handleSubmits()" class="small-form">
       <div class="basic">
-        <!-- Close Button -->
-        <button type="button" class="close-btn" (click)="closeEditForm()">
-          X
-        </button>
+        <!-- submit button-->
+
+        <div class="buttons">
+          <i
+            class="fa-solid fa-circle-check"
+            (click)="createMessage('success')"
+            (click)="closeEditForm()"
+          ></i>
+
+          <!-- Close Button -->
+          <i class="fa-solid fa-circle-xmark" (click)="closeEditForm()"></i>
+        </div>
 
         <div class="avt-edit">
           <nz-avatar
@@ -153,23 +161,109 @@
         <div nz-row>
           <div class="contact" nz-col nzSpan="12">
             <div class="c-heading">
-              <div class="h1c">Contact</div>
+              <div class="h1c">
+                <i class="fa-solid fa-address-book"></i>
+                Contact
+              </div>
             </div>
-            <div class="logos"></div>
+
             <div class="detail">
               <div class="dc">
-                <label>Phone</label>
-                <input type="number" placeholder="Enter your phone number" />
+                <div class="one">
+                  <div class="c-label">
+                    <label>First Name: </label>
+                  </div>
+                  <div class="c-input">
+                    <input type="text" placeholder="Your Name" />
+                  </div>
+                </div>
+                <div class="two">
+                  <div class="c-label">
+                    <label>First Name: </label>
+                  </div>
+                  <div class="c-input">
+                    <input type="text" placeholder="Your Name" />
+                  </div>
+                </div>
+                <div class="three">
+                  <div class="c-label">
+                    <label>First Name: </label>
+                  </div>
+                  <div class="c-input">
+                    <input type="text" placeholder="Your Name" />
+                  </div>
+                </div>
+                <div class="four">
+                  <div class="c-label">
+                    <label>First Name: </label>
+                  </div>
+                  <div class="c-input">
+                    <input type="text" placeholder="Your Name" />
+                  </div>
+                </div>
+                <div class="five">
+                  <div class="c-label">
+                    <label>First Name: </label>
+                  </div>
+                  <div class="c-input">
+                    <input type="text" placeholder="Your Name" />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
           <div class="address" nz-col nzSpan="12">
             <div class="a-heading">
-              <div class="h1a">Address</div>
+              <div class="h1a">
+                <i class="fa-solid fa-location-dot"></i>
+                Address
+              </div>
             </div>
-            <div class="logo2"></div>
-            <div class="detail2"></div>
+            <div class="detail2">
+              <div class="da">
+                <div class="one">
+                  <div class="c-label">
+                    <label>First Name: </label>
+                  </div>
+                  <div class="c-input">
+                    <input type="text" placeholder="Your Name" />
+                  </div>
+                </div>
+                <div class="two">
+                  <div class="c-label">
+                    <label>First Name: </label>
+                  </div>
+                  <div class="c-input">
+                    <input type="text" placeholder="Your Name" />
+                  </div>
+                </div>
+                <div class="three">
+                  <div class="c-label">
+                    <label>First Name: </label>
+                  </div>
+                  <div class="c-input">
+                    <input type="text" placeholder="Your Name" />
+                  </div>
+                </div>
+                <div class="four">
+                  <div class="c-label">
+                    <label>First Name: </label>
+                  </div>
+                  <div class="c-input">
+                    <input type="text" placeholder="Your Name" />
+                  </div>
+                </div>
+                <div class="five">
+                  <div class="c-label">
+                    <label>First Name: </label>
+                  </div>
+                  <div class="c-input">
+                    <input type="text" placeholder="Your Name" />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -177,5 +271,5 @@
     </form>
   </div>
   <!--finish info container-->
-  <!-- <nz-footer>Footer</nz-footer> -->
+  <nz-footer>Footer</nz-footer>
 </nz-layout>

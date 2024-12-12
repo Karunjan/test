@@ -1,133 +1,207 @@
 <div class="formmain">
   <div class="timedate">
-      <div class="time"><nz-time-picker [(ngModel)]="time"></nz-time-picker></div>
-      <div class="head">Sample Form</div>
-      <div class="date"> <nz-date-picker [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-date-picker></div>
+    <div class="time"><nz-time-picker [(ngModel)]="time"></nz-time-picker></div>
+    <div class="head">Sample Form</div>
+    <div class="date">
+      <nz-date-picker
+        [(ngModel)]="date"
+        (ngModelChange)="onChange($event)"
+      ></nz-date-picker>
+    </div>
   </div>
   <div nz-row>
-      <div nz-col nzSpan="12">
-          <div class="col-content">
+    <div nz-col nzSpan="12">
+      <div class="col-content">
+        <div class="box">
+          <div class="tit1">Sign in</div>
+          <div class="form-container">
+            <form
+              nz-form
+              [formGroup]="validateForm"
+              class="login-form"
+              (ngSubmit)="onsubmit()"
+            >
+              <nz-form-item>
+                <nz-form-control nzErrorTip="Please input your username!">
+                  <nz-input-group nzPrefixIcon="user">
+                    <input
+                      type="text"
+                      nz-input
+                      formControlName="username"
+                      placeholder="Username"
+                    />
+                  </nz-input-group>
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-control nzErrorTip="Please input your Password!">
+                  <nz-input-group nzPrefixIcon="lock">
+                    <input
+                      type="password"
+                      nz-input
+                      formControlName="password"
+                      placeholder="  Password"
+                    />
+                  </nz-input-group>
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-control nzErrorTip="Please input your Password!">
+                  <nz-input-group nzPrefixIcon="lock">
+                    <input
+                      type="Password"
+                      nz-input
+                      formControlName="confirmPassword"
+                      placeholder="Confirm Password"
+                    />
+                  </nz-input-group>
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-control
+                  nzErrorTip="Please input a valid 10-digit phone number!"
+                >
+                  <nz-input-group [nzAddOnBefore]="addOnBeforeTemplate">
+                    <ng-template #addOnBeforeTemplate>
+                      <nz-select
+                        formControlName="phoneNumberPrefix"
+                        class="phone-select"
+                      >
+                        <nz-option nzLabel="Code" nzValue="code"></nz-option>
+                        <nz-option nzLabel="+94" nzValue="+94"></nz-option>
+                        <nz-option nzLabel="+87" nzValue="+87"></nz-option>
+                      </nz-select>
+                    </ng-template>
+                    <input
+                      type="number"
+                      formControlName="phoneNumber"
+                      id="phoneNumber"
+                      nz-input
+                      placeholder="Enter your phone number"
+                    />
+                  </nz-input-group>
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-control nzErrorTip="Please input your gmail!">
+                  <nz-input-group nzPrefixIcon="mail">
+                    <input
+                      type="text"
+                      nz-input
+                      formControlName="gmail"
+                      placeholder="Gmail"
+                    />
+                  </nz-input-group>
+                </nz-form-control>
+              </nz-form-item>
 
-              <div class="box">
-                  <div class="tit1">Sign in</div>
-                  <div class="form-container">
-                      <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="onsubmit()">
-                          <nz-form-item>
-                              <nz-form-control nzErrorTip="Please input your username!">
-                                  <nz-input-group nzPrefixIcon="user">
-                                      <input type="text" nz-input formControlName="username" placeholder="Username" />
-                                  </nz-input-group>
-                              </nz-form-control>
-                          </nz-form-item>
-                          <nz-form-item>
-                              <nz-form-control nzErrorTip="Please input your Password!">
-                                  <nz-input-group nzPrefixIcon="lock">
-                                      <input type="password" nz-input formControlName="password" placeholder="  Password" />
-                                  </nz-input-group>
-                              </nz-form-control>
-                          </nz-form-item>
-                          <nz-form-item>
-                              <nz-form-control nzErrorTip="Please input your Password!">
-                                  <nz-input-group nzPrefixIcon="lock">
-                                      <input type="Password" nz-input formControlName="confirmPassword" placeholder="Confirm Password" />
-                                  </nz-input-group>
-                              </nz-form-control>
-                          </nz-form-item>
-                          <nz-form-item>
-                              <nz-form-control nzErrorTip="Please input a valid 10-digit phone number!">
-                                  <nz-input-group [nzAddOnBefore]="addOnBeforeTemplate">
-                                      <ng-template #addOnBeforeTemplate>
-                                          <nz-select formControlName="phoneNumberPrefix" class="phone-select">
-                                              <nz-option nzLabel="Code" nzValue="code"></nz-option>
-                                              <nz-option nzLabel="+94" nzValue="+94"></nz-option>
-                                              <nz-option nzLabel="+87" nzValue="+87"></nz-option>
-                                          </nz-select>
-                                      </ng-template>
-                                      <input type="number" formControlName="phoneNumber" id="phoneNumber" nz-input placeholder="Enter your phone number" />
-                                  </nz-input-group>
-                              </nz-form-control>
-                          </nz-form-item>
-                          <nz-form-item>
-                              <nz-form-control nzErrorTip="Please input your gmail!">
-                                  <nz-input-group nzPrefixIcon="mail">
-                                      <input type="text" nz-input formControlName="gmail" placeholder="Gmail" />
-                                  </nz-input-group>
-                              </nz-form-control>
-                          </nz-form-item>
-
-                          <div nz-row class="login-form-margin">
-                              <div nz-col [nzSpan]="12">
-                                  <label nz-checkbox formControlName="remember">
-                                      <span>Remember me</span>
-                                  </label>
-                              </div>
-                              <div nz-col [nzSpan]="12">
-                                  <a class="login-form-forgot">Forgot password</a>
-                              </div>
-                          </div>
-                          <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'" (click)="addItem()">Sign in</button>
-                          Or
-                          <a>register now!</a>
-                      </form>
-                  </div>
+              <div nz-row class="login-form-margin">
+                <div nz-col [nzSpan]="12">
+                  <label nz-checkbox formControlName="remember">
+                    <span>Remember me</span>
+                  </label>
+                </div>
+                <div nz-col [nzSpan]="12">
+                  <a class="login-form-forgot">Forgot password</a>
+                </div>
               </div>
+              <button
+                nz-button
+                class="login-form-button login-form-margin"
+                [nzType]="'primary'"
+                (click)="addItem()"
+              >
+                Sign in
+              </button>
+              Or
+              <a>register now!</a>
+            </form>
           </div>
+        </div>
       </div>
+    </div>
 
-      <div nz-col nzSpan="12">
-          <div class="col-content2">
-              <div class="box2">
-                  <div class="tit2">Login Form</div>
-                  <div class="login-container">
-                      <form nz-form [formGroup]="validateForms" class="login-form" (ngSubmit)="onsubmit()">
-                          <nz-form-item>
-                              <nz-form-control nzErrorTip="Please input your username!">
-                                  <nz-input-group nzPrefixIcon="user">
-                                      <input type="text" nz-input formControlName="username" placeholder="Username" />
-                                  </nz-input-group>
-                              </nz-form-control>
-                          </nz-form-item>
-                          <nz-form-item>
-                              <nz-form-control nzErrorTip="Please input your Password!">
-                                  <nz-input-group nzPrefixIcon="lock">
-                                      <input type="password" nz-input formControlName="password" placeholder="  Password" />
-                                  </nz-input-group>
-                              </nz-form-control>
-                          </nz-form-item>
-                          <div nz-row class="login-form-margin">
-                              <div nz-col [nzSpan]="12">
-                                  <label nz-checkbox formControlName="remember">
-                                      <span>Remember me</span>
-                                  </label>
-                              </div>
-                              <div nz-col [nzSpan]="12">
-                                  <a class="login-form-forgot">Forgot password</a>
-                              </div>
-                          </div>
-                          <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Log in</button>
-                          Or
-                          <a>register now!</a>
-                      </form>
-                  </div>
+    <div nz-col nzSpan="12">
+      <div class="col-content2">
+        <div class="box2">
+          <div class="tit2">Login Form</div>
+          <div class="login-container">
+            <form
+              nz-form
+              [formGroup]="validateForms"
+              class="login-form"
+              (ngSubmit)="onsubmit()"
+            >
+              <nz-form-item>
+                <nz-form-control nzErrorTip="Please input your username!">
+                  <nz-input-group nzPrefixIcon="user">
+                    <input
+                      type="text"
+                      nz-input
+                      formControlName="username"
+                      placeholder="Username"
+                    />
+                  </nz-input-group>
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-control nzErrorTip="Please input your Password!">
+                  <nz-input-group nzPrefixIcon="lock">
+                    <input
+                      type="password"
+                      nz-input
+                      formControlName="password"
+                      placeholder="  Password"
+                    />
+                  </nz-input-group>
+                </nz-form-control>
+              </nz-form-item>
+              <div nz-row class="login-form-margin">
+                <div nz-col [nzSpan]="12">
+                  <label nz-checkbox formControlName="remember">
+                    <span>Remember me</span>
+                  </label>
+                </div>
+                <div nz-col [nzSpan]="12">
+                  <a class="login-form-forgot">Forgot password</a>
+                </div>
               </div>
+              <button
+                nz-button
+                class="login-form-button login-form-margin"
+                [nzType]="'primary'"
+              >
+                Log in
+              </button>
+              Or
+              <a>register now!</a>
+            </form>
           </div>
+        </div>
       </div>
+    </div>
   </div>
 
   <nz-table #basicTable>
-      <thead>
-          <tr>
-              <th>username</th>
-              <th>phoneNumber</th>
-              <th>gmail</th>
-          </tr>
-      </thead>
-      <tbody>
-          <tr *ngFor="let item of listdata">
-              <td><span>{{ item.username }}</span></td>
-              <td><span>{{ item.phoneNumber }}</span></td>
-              <td><span>{{ item.gmail }}</span></td>
-          </tr>
-      </tbody>
+    <thead>
+      <tr>
+        <th>username</th>
+        <th>phoneNumber</th>
+        <th>gmail</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of listdata">
+        <td>
+          <span>{{ item.username }}</span>
+        </td>
+        <td>
+          <span>{{ item.phoneNumber }}</span>
+        </td>
+        <td>
+          <span>{{ item.gmail }}</span>
+        </td>
+      </tr>
+    </tbody>
   </nz-table>
 </div>
